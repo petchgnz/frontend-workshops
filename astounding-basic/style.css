@@ -9,6 +9,10 @@ body {
     min-height: 100vh;
 }
 
+.hamburger {
+    display: none;
+}
+
 .container {
     width: 100%;
     max-width: 960px;
@@ -26,6 +30,7 @@ header {
 
     nav {
         display: grid;
+        width: 100%;
         grid-template-columns: 225px 1fr;
 
         .logo {
@@ -126,6 +131,10 @@ header {
             margin: 10px 0;
         }
 
+        img {
+            width: 100%;
+        }
+
         p {
             text-align: justify;
         }
@@ -169,8 +178,7 @@ footer {
                 }
             }
 
-            .date:before {
-                content: "Friday, 31th January";
+            .date {
                 font-size: 13px;
                 color: grey;
                 display: block;
@@ -247,6 +255,7 @@ footer {
                     color: white;
                     padding: 10px;
                     font-size: 16px;
+                    resize: vertical;
                 }
 
                 button[type=submit] {
@@ -281,5 +290,189 @@ footer {
 
     .copy-right {
         text-align: right;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+   
+    .hamburger {
+        display: inline;
+        font-size:3rem;
+        cursor: pointer;
+        /* border: 1px solid red; */
+    }
+
+    header {
+        height: auto;
+
+        nav {
+            display: none;
+            grid-template-columns: 1fr;
+
+            .logo {
+                text-align: center;;
+                margin-bottom: 20px;
+            }
+
+            ul.menu {
+                grid-template-columns: 1fr;
+
+                li {
+                    height: 1.5rem;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    section.contents {
+        .content-head {
+            h1 {
+                font-size:3rem;
+                text-align: center;
+            }
+        }
+        
+        .content-services-grid {
+            grid-template-columns: 1fr;
+            justify-items: center;
+            
+            .content-services-items {
+                width: 80%;
+            }
+        }
+
+        .content-meet {
+            h1 {
+                font-size: 2.5rem;
+                color: rgb(77, 77, 77);
+            }
+        }
+
+        .content-teams-grid {
+            grid-template-columns: 1fr;
+            justify-items: center;
+
+            .content-teams-items {
+                width: 85%;
+                margin-bottom: 20px;
+
+                h2 {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    footer {
+        .footer-grid {
+            grid-template-columns: 1fr;
+            
+            .footer-item {
+                text-align: center;
+                padding: 0 20px;
+                
+            }
+        }
+
+    }
+
+    .copyright {
+        .copyright-grid {
+            padding: 0 10px;
+            font-size: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .hamburger {
+        display: inline;
+        font-size:3rem;
+        cursor: pointer;
+        /* border: 1px solid red; */
+    }
+
+    header {
+        height: auto;
+
+        nav {
+            grid-template-columns: 1fr;
+
+            .logo {
+                text-align: center;;
+                /* margin-top: 50px; */
+            }
+
+            ul.menu {
+                grid-template-columns: 1fr;
+
+                li {
+                    height: 1.5rem;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    section.contents {
+        .content-head {
+            h1 {
+                font-size:5.5rem;
+                text-align: center;
+            }
+        }
+        
+        .content-services-grid {
+            grid-template-columns: 1fr 1fr;
+            justify-items: center;
+            
+            .content-services-items {
+                width: 80%;
+            }
+        }
+
+        .content-meet {
+            h1 {
+                font-size: 6rem;
+                color: rgb(77, 77, 77);
+            }
+        }
+
+        .content-teams-grid {
+            grid-template-columns: 1fr 1fr;
+            justify-items: center;
+
+            .content-teams-items {
+                width: 85%;
+                margin-bottom: 20px;
+
+                h2 {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    footer {
+        .footer-grid {
+            grid-template-columns: 1fr 1fr;
+            row-gap: 30px;
+            
+            .footer-item {
+                text-align: center;
+                padding: 0 20px;
+                
+            }
+        }
+
+    }
+
+    .copyright {
+        .copyright-grid {
+            padding: 0 10px;
+            font-size: 10px;
+        }
     }
 }
