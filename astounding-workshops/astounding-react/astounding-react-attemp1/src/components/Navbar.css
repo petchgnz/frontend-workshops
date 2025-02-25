@@ -1,0 +1,50 @@
+.navbar {
+    border-top: 5px solid var(--blue);
+    background: var(--bg);
+    height: 120px;
+    align-content: center;
+    color: white;
+
+    .navbar-grid {
+        /* border: 1px solid red; */
+        display: grid;
+        align-items: center;
+        gap: 20px;
+        grid-template-columns: 225px 1fr;
+
+        .navbar-logo {
+            h2 {
+                font-size: 28px;
+                text-transform: uppercase;
+                letter-spacing: 2.6px;
+            }
+            p {
+                font-size: 12px;
+                letter-spacing: 2.1px;
+            }
+        }
+
+        ul.navbar-menu {
+            display: grid;
+            /* border: 1px solid red; */
+            grid-template-columns: repeat(6, 1fr);
+            li {
+                list-style: none;
+                text-align: center;
+                /* border: 1px solid red; */
+
+                a {
+                    border-radius: 15px;
+                    border: 1px solid rgb(85, 85, 85);
+                    text-decoration: none;
+                    color: white;
+                    padding: 15px;
+                    transition: .3s all ease-in-out;
+                }
+                a:hover {
+                    background:var(--blue);
+                }
+            }
+        }
+    }
+}

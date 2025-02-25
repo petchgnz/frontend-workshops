@@ -1,4 +1,22 @@
-#root {
+:root {
+  --blue: #40aed7;
+  --bg: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +57,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */
