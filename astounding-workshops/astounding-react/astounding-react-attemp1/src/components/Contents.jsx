@@ -1,6 +1,7 @@
 import ContentHeader from "./ContentHeader.jsx"
 import ContentServices from "./ContentServices.jsx"
 import ContentMeet from "./ContentMeet.jsx"
+import ContentTeams from "./ContentTeams.jsx"
 import './Contents.css'
 
 function Contents() {
@@ -9,6 +10,7 @@ function Contents() {
             <ContentHeader />
             <ContentServices />
             <ContentMeet />
+            <ContentTeams />
         </div>
     )
 }
