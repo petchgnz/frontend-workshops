@@ -1,6 +1,128 @@
 .footer {
-    background: var(--bg);
-    color: white;
-    padding: 20px 0;
-}
+  background: var(--bg);
+  color: white;
+  padding: 20px 0;
 
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+
+    .footer-grid-items:nth-child(1) {
+      h2 {
+        margin: 10px 0px 30px;
+      }
+      h3 {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+
+      p > a {
+        color: var(--blue);
+      }
+
+      h3 + p {
+        color: #767676;
+        margin-bottom: 10px;
+      }
+      
+      .dates {
+        color: #dedede;
+        display: block;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      .dates + p {
+        /* background: red; */
+        margin: 10px 0 10px;
+        color: #dedede;
+        text-align: justify;
+      }
+
+      .read-more {
+        text-align: right;
+        display: block;
+        color: var(--blue);
+        text-decoration: none;
+      }
+      .read-more::after {
+        content: ">>";
+      }
+    }
+
+    .footer-grid-items:nth-child(2) {
+      h2 {
+        margin: 10px 0 30px;
+      }
+
+      ul.links {
+        li {
+          list-style: none;
+          padding: 10px 0 10px;
+          border-bottom: 1px solid #767676;
+          a {
+            font-size: 15px;
+            text-decoration: none;
+            color: var(--blue);
+          }
+          a::before {
+            content: "> ";
+          }
+        }
+      }
+    }
+
+    .footer-grid-items:nth-child(3) {
+      h2 {
+        margin: 10px 0 30px;
+      }
+
+      p {
+        margin-bottom: 20px;
+        text-align: justify;
+      }
+
+      p > a {
+        color:  var(--blue);
+      }
+    }
+    
+    .footer-grid-items:nth-child(4) {
+      h2 {
+        margin: 10px 0 30px;
+      }
+
+      input {
+        background: #222222;
+        border: none;
+        outline: none;
+        padding: 10px;
+        color:#dedede;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      textarea {
+        padding: 10px;
+        background: #222222;
+        border: none;
+        outline: none;
+        resize: vertical;
+        color: #dedede;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      #submitButton {
+        display: block;
+        border: none;
+        outline: none;
+        background: var(--blue);
+        color: black;
+        width: 100%;
+        padding: 10px;
+      }
+    }
+  }
+}

@@ -1,6 +1,25 @@
+.content-teams {
+    margin-bottom: 50px;
+}
 .content-teams-grid {
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 20px;
-    text-align: center;
+    text-align: justify;
+
+    h2 {
+        margin: 10px 0;
+        font-size: 2rem;
+    }    
+    
+    a {
+        margin-top: 10px;
+        font-size: 1.15rem;
+        display: block;
+        text-align: right;
+        text-decoration: none;
+    }
+    a::after {
+        content: " >>";
+    }
 }

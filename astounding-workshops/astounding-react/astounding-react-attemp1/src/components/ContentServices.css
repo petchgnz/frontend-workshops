@@ -4,10 +4,10 @@
     .content-services-grid {
         display: grid;
         gap: 10px;
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(4, 1fr);
         text-align: center;
         cursor: pointer;
-        
+
         .content-services-items {
             border: 1px solid #dedede;
             padding: 15px;
@@ -24,6 +24,7 @@
                 margin-bottom: 10px;
             }
         }
+
         .content-services-items:hover {
             background: var(--blue);
             color: white;
