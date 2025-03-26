@@ -1,1 +1,12 @@
 @import 'tailwindcss';
+
+@theme {
+    --breakpoint-container: 960px;
+}
+
+.container {
+    max-width: var(--breakpoint-container);
+    /* margin: 0 auto; */
+    margin-left: auto;
+    margin-right: auto;
+}

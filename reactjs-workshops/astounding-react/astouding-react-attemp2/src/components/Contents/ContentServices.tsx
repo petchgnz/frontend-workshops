@@ -6,8 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTruck, faGear, faComment, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
-type Props = {
-}
+type Props = {}
 
 type Services = {
     icons: IconProp,
@@ -40,8 +39,8 @@ function ContentServices({ }: Props) {
     ]
 
     return (
-        <div className="container mx-auto p-3">
-            <div className="grid grid-cols-4 gap-4 ">
+        <div className=" mb-15">
+            <div className="grid grid-cols-4 gap-4">
                 {servicesData.map((data, index) => (
                     <div key={index} className="cursor-default p-4 border-2 border-[#dedede] text-center hover:bg-[#40c5d7] hover:text-white hover:border-white transition ease-in-out">
                         <FontAwesomeIcon icon={data.icons} className='text-8xl my-[10px]' />

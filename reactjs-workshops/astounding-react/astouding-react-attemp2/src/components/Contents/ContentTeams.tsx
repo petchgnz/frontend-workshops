@@ -37,7 +37,7 @@ function ContentTeams({ }: Props) {
     ]
 
     return (
-        <div className='container mx-auto my-20'>
+        <div className='my-15'>
             <div className="grid grid-cols-4 gap-5">
                 {teamMembers.map((data) => {
                     return (
