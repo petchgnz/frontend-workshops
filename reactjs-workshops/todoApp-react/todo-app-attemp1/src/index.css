@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-bg: #1f1e1e;
+}
+
+.todo-input-item {
+  @apply flex flex-col items-start mr-6 justify-center;
+}
+
+.todo-input-item label {
+  @apply font-bold mb-2.5
+}
+
+.todo-input-item input {
+  @apply p-2 border-none w-[250px] bg-white text-black;
+}
+
