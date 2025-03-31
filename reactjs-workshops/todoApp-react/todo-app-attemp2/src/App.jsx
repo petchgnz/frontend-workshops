@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function App() {
+  const [isCompletedScreen, setIsCompletedScreen] = useState(false);
+
   return (
     <div className="bg-bg1 w-screen h-screen text-white flex flex-col justify-center items-center ">
       <div className="text-2xl font-bold ">My Todos</div>
@@ -19,14 +23,15 @@ export default function App() {
           </div>
 
           <div className="flex justify-center mt-8">
-			 <button className="w-[60px] p-2 bg-emr cursor-pointer transition-all ease-in-out hover:bg-emerald-500 rounded-xs" type="button">Add</button>
-		  </div>
+            <button className="w-[60px] p-2 bg-emr cursor-pointer transition-all ease-in-out hover:bg-emerald-500 rounded-xs" type="button">Add</button>
+          </div>
         </div>
 
         {/* todo-btn-area */}
         <div className="">
-          <button className="">Todo</button>
-          <button className="">Completed</button>
+          <button className={`cursor-pointer w-[60px] p-2 ${isCompletedScreen ? "bg-[#686868]" : "bg-emr"}`} onClick={() => setIsCompletedScreen(false)}>Todo</button>
+          <button className={`cursor-pointer p-2 ${isCompletedScreen ? "bg-emr" : "bg-[#686868]"}`} onClick={() => setIsCompletedScreen(true)}>Completed</button>
+          {console.log(`isCompleted is : ${isCompletedScreen}`)}
         </div>
       </div>
     </div>
