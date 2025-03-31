@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-bg: #1f1e1e;
+}
+
+.todo-input-item {
+  @apply flex flex-col items-start mr-6 justify-center;
+}
+
+.todo-input-item label {
+  @apply font-bold mb-2.5
+}
+
+.todo-input-item input {
+  @apply p-2 border-none w-[250px] bg-white text-black;
+}
+
+.task-container {
+  @apply bg-none;
+}
+
+.task-title {
+  @apply font-bold text-2xl text-green-400 cursor-default
+}
+.task-description {
+  @apply mt-2 text-white/50 cursor-default
+}
+
+.delete-icon {
+  @apply text-4xl mx-2 cursor-pointer transition-all ease-in-out hover:text-red-500;
+}
+
+.check-icon {
+  @apply text-4xl mx-2 cursor-pointer transition-all ease-in-out hover:text-green-500;
+}
+
