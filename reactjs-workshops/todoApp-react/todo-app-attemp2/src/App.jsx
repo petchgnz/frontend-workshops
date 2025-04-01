@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { MdDeleteOutline } from "react-icons/md";
+import { FaCheck } from "react-icons/fa6";
 
 export default function App() {
   const [isCompletedScreen, setIsCompletedScreen] = useState(false);
 
   return (
-    <div className="bg-bg1 w-screen h-screen text-white flex flex-col justify-center items-center ">
+    <div className="bg-bg1 w-screen h-screen text-white flex flex-col justify-center items-center shadow-2xl">
       <div className="text-2xl font-bold ">My Todos</div>
 
       {/* Container */}
@@ -29,9 +31,38 @@ export default function App() {
 
         {/* todo-btn-area */}
         <div className="">
-          <button className={`cursor-pointer w-[60px] p-2 ${isCompletedScreen ? "bg-[#686868]" : "bg-emr"}`} onClick={() => setIsCompletedScreen(false)}>Todo</button>
+          <button className={`cursor-pointer w-[60px] p-2 ${!isCompletedScreen ? "bg-emr" : "bg-[#686868]"}`} onClick={() => setIsCompletedScreen(false)}>Todo</button>
           <button className={`cursor-pointer p-2 ${isCompletedScreen ? "bg-emr" : "bg-[#686868]"}`} onClick={() => setIsCompletedScreen(true)}>Completed</button>
-          {console.log(`isCompleted is : ${isCompletedScreen}`)}
+          {console.log(isCompletedScreen)}
+        </div>
+
+        {/* todo item*/}
+        <div className="">
+          <div className="bg-bg3 my-5 p-5 flex justify-between items-center shadow-2xl">
+
+            <div className="">
+              <h3 className='text-lg font-semibold'>Task 1</h3>
+              <p className=''>Description</p>
+            </div>
+
+            <div className="flex text-4xl gap-5">
+              <MdDeleteOutline className='cursor-pointer transition-all ease-in-out hover:text-red-500' />
+              <FaCheck className='cursor-pointer transition-all ease-in-out hover:text-emr' />
+            </div>
+          </div>
+
+          <div className="bg-bg3 my-5 p-5 flex justify-between items-center shadow-2xl">
+
+            <div className="">
+              <h3 className='text-lg font-semibold'>Task 1</h3>
+              <p className=''>Description</p>
+
+            </div>
+            <div className="flex text-4xl gap-5">
+              <MdDeleteOutline className='cursor-pointer transition-all ease-in-out hover:text-red-500' />
+              <FaCheck className='cursor-pointer transition-all ease-in-out hover:text-emr' />
+            </div>
+          </div>
         </div>
       </div>
     </div>
