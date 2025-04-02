@@ -1,12 +1,57 @@
-# React + Vite
+# 📝 TodoApp
+A simple and interactive **Todo List App** built with **React** and **Tailwind CSS**.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Features
+✅ Add tasks with a **title** and **description**  
+✅ Delete tasks that are no longer needed  
+✅ Mark tasks as **completed**, with a timestamp  
+✅ Switch between **Active** and **Completed** tasks  
+✅ Local storage support to **persist tasks**  
 
-Currently, two official plugins are available:
+## 🖼️ Screenshots
+(Add screenshots or GIFs of your app in action)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack
+- **Frontend**: React.js, Tailwind CSS  
+- **Icons**: React Icons (MdDeleteOutline, FaCheck)  
+- **State Management**: React Hooks (`useState`, `useEffect`)  
+- **Data Persistence**: Local Storage  
 
-## Expanding the ESLint configuration
+## 📦 Installation & Setup
+1. Clone the repository  
+   ```sh
+   git clone https://github.com/your-username/todo-app.git
+   cd todo-app
+   ```
+2. Install dependencies  
+   ```sh
+   npm install
+   ```
+3. Run the app  
+   ```sh
+   npm run dev
+   ```
+4. Open the app in your browser  
+   ```
+   http://localhost:5173
+   ```
+   _(Vite is used for fast development)_
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ How to Use
+1. **Add a Task**: Enter a title & description, then click **"Add"**  
+2. **Delete a Task**: Click the 🗑️ **delete icon**  
+3. **Complete a Task**: Click the ✅ **check icon**  
+4. **Switch Views**: Use the **"Todo"** and **"Completed"** buttons  
+
+## 🔥 Upcoming Features
+- [ ] **Dark Mode** 🌙  
+- [ ] **Drag & Drop** to reorder tasks  
+- [ ] **Due Date & Reminders**  
+
+## 📄 License
+This project is **open-source** and available under the **MIT License**.
+
+## 💡 About Me
+👨‍💻 I'm a frontend developer passionate about **React, Tailwind, and UI/UX design**.  
+📫 Let's connect on [GitHub](https://github.com/your-username) or [LinkedIn](https://linkedin.com/in/your-profile)!  
+

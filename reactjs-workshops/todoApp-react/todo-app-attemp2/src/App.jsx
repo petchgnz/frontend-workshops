@@ -126,7 +126,7 @@ export default function App() {
 
           <div className="flex justify-center mt-8">
             <button
-              className="w-[60px] p-2 bg-emr cursor-pointer transition-all ease-in-out hover:bg-emerald-500 rounded-xs"
+              className="w-[60px] p-2 bg-emr cursor-pointer transition-all ease-in-out hover:bg-emr-dark rounded-xs"
               type="button"
               onClick={handleAddTodo}
             >
@@ -157,7 +157,7 @@ export default function App() {
           </div>
           <div className="">
             <button
-              className="cursor-pointer bg-emr transition-all ease-in-out p-2 hover:bg-emerald-500 rounded-xs"
+              className="cursor-pointer bg-emr transition-all ease-in-out p-2 hover:bg-emr-dark rounded-xs"
               onClick={handleReset}
             >
               Reset Todos
