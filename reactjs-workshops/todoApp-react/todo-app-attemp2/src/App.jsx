@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import { FaCheck } from "react-icons/fa6";
 
 export default function App() {
   const [isCompletedScreen, setIsCompletedScreen] = useState(false);
   const [allTodos, setAllTodos] = useState([]);
-  const [newTitle, setNewTitle] = useState('');
-  const [newDescription, setNewDescription] = useState('');
+  const [newTitle, setNewTitle] = useState("");
+  const [newDescription, setNewDescription] = useState("");
+  const [completedTodos, setCompletedTodos] = useState([]);
 
   const handleAddTodo = () => {
-    if (!newTitle.trim() || !newDescription.trim()) {
-      alert("Task title and description cannot be empty!")
+    if (!newTitle.trim()) {
+      alert("Task title and description cannot be empty!");
       return;
     }
 
@@ -21,10 +22,74 @@ export default function App() {
       isCompletedScreen: false,
     };
 
-    setAllTodos([...allTodos, newTodo])
-    setNewTitle("")
-    setNewDescription("")
-  }
+    setAllTodos([...allTodos, newTodo]);
+    localStorage.setItem("todos", JSON.stringify([...allTodos, newTodo]));
+    setNewTitle("");
+    setNewDescription("");
+  };
+
+  const handleDeleteTodo = (index) => {
+    const newTodoList = allTodos.filter((_, todoIndex) => todoIndex !== index);
+    setAllTodos(newTodoList);
+    localStorage.setItem("todos", JSON.stringify(newTodoList));
+  };
+
+  const handleDeleteCompletedTodo = (index) => {
+    const newCompletedTodo = completedTodos.filter(
+      (_, completedIndex) => completedIndex !== index
+    );
+    setCompletedTodos(newCompletedTodo);
+    localStorage.setItem("completedTodos", JSON.stringify(newCompletedTodo));
+  };
+
+  const handleCompleted = (index) => {
+    let now = new Date();
+    let date = now.getDate();
+    let month = now.getMonth() + 1;
+    let year = now.getFullYear();
+    let h = now.getHours();
+    let m = now.getMinutes();
+    let completedOn = `${date}/${month}/${year} ${h}:${m}`;
+
+    let updatedTodo = [...allTodos];
+    let completeTodo = {
+      ...allTodos[index],
+      isCompletedScreen: true,
+      completedOn,
+    };
+
+    setCompletedTodos([...completedTodos, completeTodo]);
+    updatedTodo.splice(index, 1);
+    setAllTodos(updatedTodo);
+    localStorage.setItem("todos", JSON.stringify(updatedTodo));
+    localStorage.setItem(
+      "completedTodos",
+      JSON.stringify([...completedTodos, completeTodo])
+    );
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleAddTodo();
+    }
+  };
+
+  const handleReset = () => {
+    setAllTodos([]);
+    setCompletedTodos([]);
+  };
+
+  useEffect(() => {
+    let savedTodo = JSON.parse(localStorage.getItem("todos"));
+    let savedCompletedTodo = JSON.parse(localStorage.getItem("completedTodos"));
+
+    if (savedTodo) {
+      setAllTodos(savedTodo);
+    }
+    if (savedCompletedTodo) {
+      setCompletedTodos(savedCompletedTodo);
+    }
+  }, []);
 
   return (
     <div className="bg-bg1 w-screen h-screen text-white flex flex-col justify-center items-center shadow-2xl">
@@ -41,9 +106,9 @@ export default function App() {
               className="outline-none p-2 bg-white/10 text-white"
               placeholder="What's the task title?"
               onChange={(e) => setNewTitle(e.target.value)}
+              onKeyDown={(e) => handleKeyPress(e)}
               value={newTitle}
               type="text"
-
             />
           </div>
 
@@ -53,6 +118,7 @@ export default function App() {
               className="outline-none p-2 bg-white/10 text-white"
               placeholder="What's the task description?"
               onChange={(e) => setNewDescription(e.target.value)}
+              onKeyDown={(e) => handleKeyPress(e)}
               value={newDescription}
               type="text"
             />
@@ -60,7 +126,8 @@ export default function App() {
 
           <div className="flex justify-center mt-8">
             <button
-              className="w-[60px] p-2 bg-emr cursor-pointer transition-all ease-in-out hover:bg-emerald-500 rounded-xs" type="button"
+              className="w-[60px] p-2 bg-emr cursor-pointer transition-all ease-in-out hover:bg-emerald-500 rounded-xs"
+              type="button"
               onClick={handleAddTodo}
             >
               Add
@@ -69,38 +136,83 @@ export default function App() {
         </div>
 
         {/* todo-btn-area */}
-        <div className="">
-          <button className={`cursor-pointer w-[60px] p-2 ${!isCompletedScreen ? "bg-emr" : "bg-[#686868]"}`} onClick={() => setIsCompletedScreen(false)}>Todo</button>
-          <button className={`cursor-pointer p-2 ${isCompletedScreen ? "bg-emr" : "bg-[#686868]"}`} onClick={() => setIsCompletedScreen(true)}>Completed</button>
+        <div className="flex justify-between items-center">
+          <div className="">
+            <button
+              className={`transition-all ease-in-out cursor-pointer w-[60px] p-2 ${
+                !isCompletedScreen ? "bg-emr" : "bg-[#686868]"
+              }`}
+              onClick={() => setIsCompletedScreen(false)}
+            >
+              Todo
+            </button>
+            <button
+              className={`transition-all ease-in-out cursor-pointer p-2 ${
+                isCompletedScreen ? "bg-emr" : "bg-[#686868]"
+              }`}
+              onClick={() => setIsCompletedScreen(true)}
+            >
+              Completed
+            </button>
+          </div>
+          <div className="">
+            <button
+              className="cursor-pointer bg-emr transition-all ease-in-out p-2 hover:bg-emerald-500 rounded-xs"
+              onClick={handleReset}
+            >
+              Reset Todos
+            </button>
+          </div>
         </div>
 
         {/* todo item*/}
         <div className="">
-          <div className="todo-list-item">
+          {!isCompletedScreen
+            ? allTodos.map((data, index) => {
+                return (
+                  <div className="todo-list-item" key={index}>
+                    <div className="">
+                      <h3 className="todo-item-title">{data.title}</h3>
+                      <p className="todo-item-description">
+                        {data.description}
+                      </p>
+                    </div>
 
-            <div className="">
-              <h3 className='text-lg font-semibold'>Task 1</h3>
-              <p className='todo-item-description'>Description</p>
-            </div>
+                    <div className="todo-item-buttons">
+                      <MdDeleteOutline
+                        className="todo-item-button-bin"
+                        onClick={() => handleDeleteTodo(index)}
+                      />
+                      <FaCheck
+                        className="todo-item-button-check"
+                        onClick={() => handleCompleted(index)}
+                      />
+                    </div>
+                  </div>
+                );
+              })
+            : completedTodos.map((data, index) => {
+                return (
+                  <div className="todo-list-item" key={index}>
+                    <div className="">
+                      <h3 className="todo-item-title">{data.title}</h3>
+                      <p className="todo-item-description">
+                        {data.description}
+                      </p>
+                      <p className="todo-item-description">
+                        <small>Completed on: {data.completedOn}</small>
+                      </p>
+                    </div>
 
-            <div className="todo-item-buttons">
-              <MdDeleteOutline className='todo-item-button-bin' />
-              <FaCheck className='todo-item-button-check' />
-            </div>
-          </div>
-
-          <div className="todo-list-item">
-
-            <div className="">
-              <h3 className='text-lg font-semibold'>Task 1</h3>
-              <p className='todo-item-description'>Description</p>
-
-            </div>
-            <div className="todo-item-buttons">
-              <MdDeleteOutline className='todo-item-button-bin' />
-              <FaCheck className='todo-item-button-check' />
-            </div>
-          </div>
+                    <div className="todo-item-buttons">
+                      <MdDeleteOutline
+                        className="todo-item-button-bin"
+                        onClick={() => handleDeleteCompletedTodo(index)}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
         </div>
       </div>
     </div>

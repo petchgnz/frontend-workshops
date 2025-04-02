@@ -17,11 +17,11 @@
 }
 
 .todo-item-title {
-  @apply text-lg font-semibold
+  @apply text-3xl font-bold text-emr capitalize
 }
 
 .todo-item-description {
-  @apply text-white/50
+  @apply text-white/50 mt-2
 }
 
 .todo-item-buttons {
