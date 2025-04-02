@@ -76,29 +76,29 @@ export default function App() {
 
         {/* todo item*/}
         <div className="">
-          <div className="bg-bg3 my-5 p-5 flex justify-between items-center shadow-2xl">
+          <div className="todo-list-item">
 
             <div className="">
               <h3 className='text-lg font-semibold'>Task 1</h3>
-              <p className=''>Description</p>
+              <p className='todo-item-description'>Description</p>
             </div>
 
-            <div className="flex text-4xl gap-5">
-              <MdDeleteOutline className='cursor-pointer transition-all ease-in-out hover:text-red-500' />
-              <FaCheck className='cursor-pointer transition-all ease-in-out hover:text-emr' />
+            <div className="todo-item-buttons">
+              <MdDeleteOutline className='todo-item-button-bin' />
+              <FaCheck className='todo-item-button-check' />
             </div>
           </div>
 
-          <div className="bg-bg3 my-5 p-5 flex justify-between items-center shadow-2xl">
+          <div className="todo-list-item">
 
             <div className="">
               <h3 className='text-lg font-semibold'>Task 1</h3>
-              <p className=''>Description</p>
+              <p className='todo-item-description'>Description</p>
 
             </div>
-            <div className="flex text-4xl gap-5">
-              <MdDeleteOutline className='cursor-pointer transition-all ease-in-out hover:text-red-500' />
-              <FaCheck className='cursor-pointer transition-all ease-in-out hover:text-emr' />
+            <div className="todo-item-buttons">
+              <MdDeleteOutline className='todo-item-button-bin' />
+              <FaCheck className='todo-item-button-check' />
             </div>
           </div>
         </div>

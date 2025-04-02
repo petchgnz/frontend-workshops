@@ -11,3 +11,26 @@
 * {
   @apply box-border;
 }
+
+.todo-list-item {
+  @apply bg-bg3 my-5 p-5 flex justify-between items-center shadow-2xl
+}
+
+.todo-item-title {
+  @apply text-lg font-semibold
+}
+
+.todo-item-description {
+  @apply text-white/50
+}
+
+.todo-item-buttons {
+  @apply flex text-4xl gap-5
+}
+
+.todo-item-button-bin {
+  @apply cursor-pointer transition-all ease-in-out hover:text-red-500
+}
+.todo-item-button-check {
+  @apply cursor-pointer transition-all ease-in-out hover:text-emr
+}
